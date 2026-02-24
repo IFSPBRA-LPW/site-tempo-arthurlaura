@@ -1,0 +1,79 @@
+/* Reset básico para ajudar na visualização */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    /* Definição das colunas: 1 fração para a esquerda, 1 fração para a direita */
+
+    grid-template-areas: 
+        'header'
+        'section-titulo'
+        'section-pesquisa'
+        'section-imagem'
+        'section-dados'
+        'section-semanal'
+        ' section-dia'; /* Vírgula removida daqui */
+    gap: 20px;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+/* Atribuição das áreas */
+header {
+    grid-area: header;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+#section-titulo {
+    grid-area: section-titulo;
+    text-align: center;
+}
+
+#section-pesquisa {
+    grid-area: section-pesquisa;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    background: #e9ecef;
+    padding: 15px;
+}
+
+#section-imagem {
+    grid-area: section-imagem;
+    border: 1px solid #ccc;
+}
+
+#section-dados {
+    grid-area: section-dados;
+    display: flex;
+    justify-content: space-around;
+    background: #f8f9fa;
+    padding: 10px;
+}
+
+#section-semanal {
+    grid-area: section-semanal;
+    display: flex;
+    justify-content: space-between;
+    background: #fff3cd;
+    padding: 10px;
+}
+
+#section-dia {
+    grid-area: section-dia;
+    background-color: #d1ecf1;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Pequeno ajuste visual para os itens dentro das seções */
+#section-dados div, #section-semanal div {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
