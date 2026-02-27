@@ -25,7 +25,7 @@ body {
 /* Atribuição das áreas */
 header {
     grid-area: header;
-    background-color: #f0f0f0;
+    background-color: #010427;
     padding: 10px;
 }
 
@@ -76,4 +76,193 @@ header {
     text-align: center;
     border: 1px solid #ddd;
     padding: 5px;
+}
+:root {
+    --bg-color: #05051e;
+    --card-bg: #1a1a3d;
+    --accent-blue: #4c6ef5;
+    --text-main: #ffffff;
+    --text-dim: #a0a0c0;
+    --border-color: #2e2e5a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    padding: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.units-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-bar {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    width: 60%;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    width: 100%;
+    outline: none;
+}
+
+.search-btn {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+}
+
+/* Cards Generais */
+section {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Current Weather */
+.current-weather {
+    background: linear-gradient(135deg, #3d3dbd, #1a1a3d);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.main-temp {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+/* Details Grid */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: transparent;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.detail-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-card span {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+}
+
+/* Daily Forecast */
+.days-list {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.day-item {
+    background: #252550;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Hourly Forecast (Coluna Direita) */
+.hourly-forecast {
+    height: 100%;
+}
+
+.hourly-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.hour-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hour-row:last-child {
+    border-bottom: none;
+}
+
+
+title{
+    display: inline-block;     /* Permite aplicar padding e altura corretamente */
+    background-color: #4c6ef5; /* Azul do seu layout */
+    color: rgb(115, 116, 209);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
 }
