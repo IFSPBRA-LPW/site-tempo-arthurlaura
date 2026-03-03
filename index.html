@@ -1,84 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Now</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <span class="icon">☀️</span> Weather Now
-        </div>
-        <button class="units-btn">Units ▾</button>
+    <header id="header">
+        <h4>🌤 Weather Now</h4>
+        <p>⚙ Units ▾</p>
     </header>
 
-    <main>
+    <section id="section-titulo">
         <h1>How's the sky looking today?</h1>
+    </section>
 
-        <section class="search-section">
-            <div class="search-bar">
-                <span class="search-icon">🔍</span>
-                <input type="text" placeholder="Search for a place...">
-            </div>
-            <button class="search-btn">Search</button>
+    <section id="section-pesquisa">
+        <nav>Search for a place...</nav>
+        <button><p>Search</p></button>
+    </section>
+
+    <!-- Wrapper para o layout de duas colunas no desktop -->
+    <div class="main-content">
+
+        <section id="section-imagem">
+            <span class="weather-icon">🌤️</span>
+            <p class="city-name">Berlin, Germany</p>
+            <p class="city-date">Tuesday, Aug 5, 2025</p>
+            <p class="temp-main">20°</p>
         </section>
 
-        <div class="dashboard">
-            <div class="left-column">
-                <section class="current-weather">
-                    <div class="location-info">
-                        <h2>Berlin, Germany</h2>
-                        <p>Tuesday, Aug 5, 2025</p>
-                    </div>
-                    <div class="temp-display">
-                        <span class="sun-icon">☀️</span>
-                        <span class="main-temp">20°</span>
-                    </div>
-                </section>
-
-                <section class="details-grid">
-                    <div class="detail-card"><span>Feels Like</span><strong>18°</strong></div>
-                    <div class="detail-card"><span>Humidity</span><strong>46%</strong></div>
-                    <div class="detail-card"><span>Wind</span><strong>11 km/h</strong></div>
-                    <div class="detail-card"><span>Precipitation</span><strong>0 mm</strong></div>
-                </section>
-
-                <section class="daily-forecast">
-                    <h3>Daily forecast</h3>
-                    <div class="days-list">
-                        <div class="day-item active">Tue 🌧️ 20° 14°</div>
-                        <div class="day-item">Wed ☁️ 21° 15°</div>
-                        <div class="day-item">Thu ☀️ 24° 14°</div>
-                        <div class="day-item">Fri ⛅ 25° 13°</div>
-                        <div class="day-item">Sat ⛈️ 21° 15°</div>
-                        <div class="day-item">Sun ☁️ 25° 16°</div>
-                        <div class="day-item">Mon 🌧️ 24° 15°</div>
-                    </div>
-                </section>
+        <section id="section-dados">
+            <div>
+                <h5>Feels Like</h5>
+                <h3>18°</h3>
             </div>
+            <div>
+                <h5>Humidity</h5>
+                <h3>46%</h3>
+            </div>
+            <div>
+                <h5>Wind</h5>
+                <h3>14 km/h</h3>
+            </div>
+            <div>
+                <h5>Precipitation</h5>
+                <h3>0 mm</h3>
+            </div>
+        </section>
 
-            <section class="hourly-forecast">
-                <div class="hourly-header">
-                    <h3>Hourly forecast</h3>
-                    <select>
-                        <option>Tuesday</option>
-                    </select>
-                </div>
-                <div class="hours-list">
-                    <div class="hour-row"><span>3 PM</span> ☁️ <span>20°</span></div>
-                    <div class="hour-row"><span>4 PM</span> ⛅ <span>20°</span></div>
-                    <div class="hour-row"><span>5 PM</span> ☀️ <span>20°</span></div>
-                    <div class="hour-row"><span>6 PM</span> ☁️ <span>19°</span></div>
-                    <div class="hour-row"><span>7 PM</span> 🌧️ <span>18°</span></div>
-                    <div class="hour-row"><span>8 PM</span> 💨 <span>18°</span></div>
-                </div>
-            </section>
-        </div>
-    </main>
+        <p class="daily-label">Daily forecast</p>
+
+        <section id="section-semanal">
+            <div><p>Tue</p><p>20° 14°</p></div>
+            <div><p>Wed</p><p>21° 15°</p></div>
+            <div><p>Thu</p><p>24° 14°</p></div>
+            <div><p>Fri</p><p>25° 13°</p></div>
+            <div><p>Sat</p><p>21° 15°</p></div>
+            <div><p>Sun</p><p>25° 16°</p></div>
+            <div><p>Mon</p><p>24° 15°</p></div>
+        </section>
+
+        <section id="section-dia">
+            <h4>Hourly forecast</h4>
+            <div><p>1 PM</p></div>
+            <div><p>2 PM</p></div>
+            <div><p>3 PM</p></div>
+            <div><p>4 PM</p></div>
+            <div><p>5 PM</p></div>
+            <div><p>6 PM</p></div>
+            <div><p>7 PM</p></div>
+            <div><p>8 PM</p></div>
+            <div><p>9 PM</p></div>
+            <div><p>10 PM</p></div>
+        </section>
+
+    </div>
 
 </body>
 </html>

@@ -1,252 +1,384 @@
-
-:root {
-    --bg-color: #05051e;
-    --card-bg: #1a1a3d;
-    --accent-blue: #4c6ef5;
-    --text-main: #ffffff;
-    --text-dim: #a0a0c0;
-    --border-color: #2e2e5a;
-    --gradient-card: linear-gradient(135deg, #3d3dbd, #1a1a3d);
-}
-
+/* ===== RESET & BASE ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --bg: #0b0f2e;
+    --bg-card: #151a3a;
+    --bg-card-alt: #1c2245;
+    --accent: #4f6ef7;
+    --accent-hover: #3a57e8;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a8cc;
+    --border: rgba(255,255,255,0.07);
+    --radius: 14px;
+    --font: 'Arial';
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    padding: 40px 20px; 
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
-
-
-header {
+/* ===== HEADER ===== */
+#header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 60px; 
+    padding: 16px 20px;
+    background-color: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--border);
 }
 
-.logo {
+#header h4 {
+    font-size: 1rem;
     font-weight: 700;
-    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+}
+
+#header p {
+    font-size: 0.78rem;
+    background: var(--bg-card-alt);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+}
+
+/* ===== TÍTULO ===== */
+#section-titulo {
+    text-align: center;
+    padding: 28px 20px 8px;
+}
+
+#section-titulo h1 {
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+/* ===== PESQUISA ===== */
+#section-pesquisa {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 20px;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#section-pesquisa nav {
     display: flex;
     align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    cursor: text;
     gap: 10px;
 }
 
-.units-btn {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
+#section-pesquisa nav::before {
+    content: "🔍";
+    font-size: 0.9rem;
+    opacity: 0.6;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    font-weight: 700;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.search-section {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 60px; 
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.search-bar {
-    background: var(--card-bg);
-    border-radius: 15px;
-    padding: 15px 25px;
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--border-color);
-}
-
-.search-bar input {
-    background: transparent;
+#section-pesquisa button {
+    background: var(--accent);
+    color: #fff;
     border: none;
-    color: white;
-    margin-left: 15px;
-    width: 100%;
-    font-size: 1rem;
-    outline: none;
-}
-
-.search-btn {
-    background: var(--accent-blue);
-    color: white;
-    border: none;
-    padding: 18px;
-    border-radius: 12px;
+    border-radius: var(--radius);
+    padding: 13px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
+    transition: background 0.2s ease;
+    width: 100%;
 }
 
+#section-pesquisa button:hover {
+    background: var(--accent-hover);
+}
 
-.dashboard {
+#section-pesquisa button p {
+    margin: 0;
+}
+
+/* ===== LAYOUT PRINCIPAL (mobile: coluna) ===== */
+.main-content {
     display: flex;
     flex-direction: column;
-    gap: 30px; 
+    gap: 16px;
+    padding: 0 20px 32px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-section {
-    background: var(--card-bg);
-    border-radius: 25px;
-    padding: 30px; 
-}
-
-/* Card de Berlin */
-.current-weather {
-    background: var(--gradient-card);
+/* ===== IMAGEM / CARD PRINCIPAL ===== */
+#section-imagem {
+    background: linear-gradient(135deg, #3a4fd4 0%, #5b7cf7 50%, #7f5af0 100%);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    min-height: 160px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 35px; 
-    margin-bottom: 25px;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
 }
 
-.location-info h2 { font-size: 1.8rem; margin-bottom: 8px; }
-.location-info p { color: var(--text-dim); }
+#section-imagem::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(255,200,50,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+}
 
-.main-temp { font-size: 4.5rem; font-weight: 700; }
+#section-imagem .city-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
 
+#section-imagem .city-date {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
 
-.details-grid {
+#section-imagem .temp-main {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+}
+
+#section-imagem .weather-icon {
+    font-size: 3rem;
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    z-index: 1;
+}
+
+/* Bolinhas decorativas */
+#section-imagem::after {
+    content: "· · ·";
+    position: absolute;
+    top: 18px;
+    left: 24px;
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 6px;
+}
+
+/* ===== DADOS (feels like, humidity…) ===== */
+#section-dados {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px; 
-    background: transparent;
-    padding: 0;
-    margin-bottom: 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
 }
 
-.detail-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 20px;
+#section-dados div {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.detail-card span { display: block; color: var(--text-dim); margin-bottom: 10px; }
-.detail-card strong { font-size: 1.4rem; }
+#section-dados h5 {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
+#section-dados h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
 
-.daily-forecast h3 { margin-bottom: 25px; }
-
-.days-list {
+/* ===== SEMANAL ===== */
+#section-semanal {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 10px;
 }
 
-.day-item {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 20px 10px;
-    border-radius: 15px;
+#section-semanal div {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 10px;
     text-align: center;
-}
-
-
-.hour-row {
     display: flex;
-    justify-content: space-between;
-    padding: 20px 5px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-
-.hourly-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    margin-bottom: 25px;
-}
-
-.hourly-header h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-
-.hourly-header select {
-    appearance: none; 
-    -webkit-appearance: none;
-    background-color: #2b2b5c; 
-    color: white;
-    border: 1px solid var(--border-color);
-    padding: 8px 35px 8px 15px; 
-    border-radius: 10px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    cursor: pointer;
-    outline: none;
-    
-   
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 10px;
-}
-
-
-.hour-row {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 18px 5px; 
-    border-bottom: 1px solid var(--border-color);
-    font-size: 0.95rem;
+    gap: 8px;
 }
 
-.hour-row:last-child {
+#section-semanal div p:first-child {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+#section-semanal div p:last-child {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ícone clima cada dia */
+#section-semanal div::before {
+    content: "🌤️";
+    font-size: 1.4rem;
+}
+
+/* ===== HOURLY ===== */
+#section-dia {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+}
+
+#section-dia h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+}
+
+#section-dia > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--border);
+    gap: 10px;
+}
+
+#section-dia > div:last-child {
     border-bottom: none;
 }
 
-.hour-row span:last-child {
-    font-weight: 600;
+#section-dia > div::before {
+    content: "☁️";
+    font-size: 1.1rem;
+    flex-shrink: 0;
 }
 
-@media (min-width: 1024px) {
-    body { padding: 60px; }
-    
-    h1 { font-size: 3.2rem; max-width: 800px; margin-bottom: 60px; }
+#section-dia > div p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    flex: 1;
+}
 
-    .search-section {
+/* ===== DAILY LABEL ===== */
+.daily-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: 0 0 8px;
+}
+
+/* ===== RESPONSIVO: Tablet ===== */
+@media (min-width: 540px) {
+    #section-pesquisa {
         flex-direction: row;
-        max-width: 800px;
     }
 
-    .search-bar { flex: 1; }
+    #section-pesquisa nav {
+        flex: 1;
+    }
 
-    .dashboard {
+    #section-pesquisa button {
+        width: auto;
+        padding: 13px 28px;
+    }
+
+    #section-semanal {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ===== RESPONSIVO: Desktop ===== */
+@media (min-width: 860px) {
+    .main-content {
         display: grid;
-        grid-template-columns: 1.8fr 1fr;
-        gap: 40px; 
-        max-width: 1200px;
-        margin: 0 auto;
+        grid-template-columns: 1fr 320px;
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+        align-items: start;
     }
 
-    .details-grid {
+    .main-content {
+        grid-template-rows: auto auto auto auto;
+    }
+
+    #section-imagem {
+        grid-column: 1;
+        grid-row: 1;
+        min-height: 220px;
+    }
+
+    #section-dados {
+        grid-column: 1;
+        grid-row: 2;
         grid-template-columns: repeat(4, 1fr);
     }
 
-    .days-list {
+    .daily-label {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    #section-semanal {
+        grid-column: 1;
+        grid-row: 4;
         grid-template-columns: repeat(7, 1fr);
+    }
+
+    #section-dia {
+        grid-column: 2;
+        grid-row: 1 / 5;
     }
 }
