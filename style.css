@@ -1,82 +1,4 @@
-/* Reset básico para ajudar na visualização */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    display: grid;
-    /* Definição das colunas: 1 fração para a esquerda, 1 fração para a direita */
-
-    grid-template-areas: 
-        'header'
-        'section-titulo'
-        'section-pesquisa'
-        'section-imagem'
-        'section-dados'
-        'section-semanal'
-        ' section-dia'; /* Vírgula removida daqui */
-    gap: 20px;
-    padding: 20px;
-    font-family: sans-serif;
-}
-
-/* Atribuição das áreas */
-header {
-    grid-area: header;
-    background-color: #010427;
-    padding: 10px;
-}
-
-#section-titulo {
-    grid-area: section-titulo;
-    text-align: center;
-}
-
-#section-pesquisa {
-    grid-area: section-pesquisa;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    background: #e9ecef;
-    padding: 15px;
-}
-
-#section-imagem {
-    grid-area: section-imagem;
-    border: 1px solid #ccc;
-}
-
-#section-dados {
-    grid-area: section-dados;
-    display: flex;
-    justify-content: space-around;
-    background: #f8f9fa;
-    padding: 10px;
-}
-
-#section-semanal {
-    grid-area: section-semanal;
-    display: flex;
-    justify-content: space-between;
-    background: #fff3cd;
-    padding: 10px;
-}
-
-#section-dia {
-    grid-area: section-dia;
-    background-color: #d1ecf1;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Pequeno ajuste visual para os itens dentro das seções */
-#section-dados div, #section-semanal div {
-    text-align: center;
-    border: 1px solid #ddd;
-    padding: 5px;
-}
 :root {
     --bg-color: #05051e;
     --card-bg: #1a1a3d;
@@ -84,6 +6,7 @@ header {
     --text-main: #ffffff;
     --text-dim: #a0a0c0;
     --border-color: #2e2e5a;
+    --gradient-card: linear-gradient(135deg, #3d3dbd, #1a1a3d);
 }
 
 * {
@@ -96,61 +19,72 @@ header {
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
-    padding: 20px;
+    padding: 40px 20px; 
 }
 
-/* Header */
+
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 30px;
+    margin-bottom: 60px; 
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .units-btn {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     color: white;
-    padding: 8px 15px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
     cursor: pointer;
-}
-
-/* Main Content */
-main {
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 h1 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Search Section */
+
 .search-section {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 40px;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 60px; 
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .search-bar {
     background: var(--card-bg);
-    border-radius: 10px;
-    padding: 10px 20px;
+    border-radius: 15px;
+    padding: 15px 25px;
     display: flex;
     align-items: center;
-    width: 60%;
+    border: 1px solid var(--border-color);
 }
 
 .search-bar input {
     background: transparent;
     border: none;
     color: white;
-    margin-left: 10px;
+    margin-left: 15px;
     width: 100%;
+    font-size: 1rem;
     outline: none;
 }
 
@@ -158,111 +92,161 @@ h1 {
     background: var(--accent-blue);
     color: white;
     border: none;
-    padding: 10px 25px;
-    border-radius: 10px;
-    cursor: pointer;
+    padding: 18px;
+    border-radius: 12px;
     font-weight: 600;
+    cursor: pointer;
 }
 
-/* Dashboard Layout */
+
 .dashboard {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
 }
 
-/* Cards Generais */
 section {
     background: var(--card-bg);
-    border-radius: 15px;
-    padding: 20px;
+    border-radius: 25px;
+    padding: 30px; 
 }
 
-/* Current Weather */
+/* Card de Berlin */
 .current-weather {
-    background: linear-gradient(135deg, #3d3dbd, #1a1a3d);
+    background: var(--gradient-card);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 50px 35px; 
+    margin-bottom: 25px;
 }
 
-.main-temp {
-    font-size: 4rem;
-    font-weight: bold;
-}
+.location-info h2 { font-size: 1.8rem; margin-bottom: 8px; }
+.location-info p { color: var(--text-dim); }
 
-/* Details Grid */
+.main-temp { font-size: 4.5rem; font-weight: 700; }
+
+
 .details-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
     background: transparent;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .detail-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+    padding: 25px;
+    border-radius: 20px;
 }
 
-.detail-card span {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    margin-bottom: 5px;
-}
+.detail-card span { display: block; color: var(--text-dim); margin-bottom: 10px; }
+.detail-card strong { font-size: 1.4rem; }
 
-/* Daily Forecast */
+
+.daily-forecast h3 { margin-bottom: 25px; }
+
 .days-list {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
 .day-item {
-    background: #252550;
-    padding: 15px;
-    border-radius: 10px;
-    min-width: 80px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 10px;
+    border-radius: 15px;
     text-align: center;
-    font-size: 0.9rem;
 }
 
-/* Hourly Forecast (Coluna Direita) */
-.hourly-forecast {
-    height: 100%;
-}
-
-.hourly-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
 
 .hour-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px;
+    padding: 20px 5px;
     border-bottom: 1px solid var(--border-color);
+}
+
+
+.hourly-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    margin-bottom: 25px;
+}
+
+.hourly-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
+.hourly-header select {
+    appearance: none; 
+    -webkit-appearance: none;
+    background-color: #2b2b5c; 
+    color: white;
+    border: 1px solid var(--border-color);
+    padding: 8px 35px 8px 15px; 
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    
+   
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 10px;
+}
+
+
+.hour-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 5px; 
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
 }
 
 .hour-row:last-child {
     border-bottom: none;
 }
 
+.hour-row span:last-child {
+    font-weight: 600;
+}
 
-title{
-    display: inline-block;     /* Permite aplicar padding e altura corretamente */
-    background-color: #4c6ef5; /* Azul do seu layout */
-    color: rgb(115, 116, 209);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+@media (min-width: 1024px) {
+    body { padding: 60px; }
+    
+    h1 { font-size: 3.2rem; max-width: 800px; margin-bottom: 60px; }
+
+    .search-section {
+        flex-direction: row;
+        max-width: 800px;
+    }
+
+    .search-bar { flex: 1; }
+
+    .dashboard {
+        display: grid;
+        grid-template-columns: 1.8fr 1fr;
+        gap: 40px; 
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .details-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .days-list {
+        grid-template-columns: repeat(7, 1fr);
+    }
 }
