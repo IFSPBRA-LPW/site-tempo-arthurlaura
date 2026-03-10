@@ -24,13 +24,13 @@ export const cityWeather = {
 
 
     hourly: [
-        { time: "4 PM", temp: 20 },
-        { time: "5 PM", temp: 20 },
-        { time: "6 PM", temp: 19 },
-        { time: "7 PM", temp: 18 },
-        { time: "8 PM", temp: 18 },
-        { time: "9 PM", temp: 17 },
-        { time: "10 PM", temp: 17 },
-        { time: "3 PM", temp: 20 },
+        { icon: "🌧", time: "4 PM", temp: 20 },
+        { icon: "🌧", time: "5 PM", temp: 20 },
+        { icon: "🌧", time: "6 PM", temp: 19 },
+        { icon: "🌧", time: "7 PM", temp: 18 },
+        { icon: "🌧", time: "8 PM", temp: 18 },
+        { icon: "🌧", time: "9 PM", temp: 17 },
+        { icon: "🌧", time: "10 PM", temp: 17 },
+        { icon: "🌧", time: "3 PM", temp: 20 },
         ],
 };

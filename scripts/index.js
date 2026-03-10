@@ -47,7 +47,8 @@ function renderHourly(hourlyData) {
     hourlyData.forEach(item => {
         
         hourlyHTML += `
-            <div>                
+            <div>
+                <span style="font-size: 1.1rem">${item.icon}</span>                
                 <p>${item.time}</p>
                 <p>${item.temp}°</p>
             </div>
