@@ -42,11 +42,26 @@ function renderDaily(dailyData){
     
 }
 
-function renderHourly(hourlyData){
-    const container = document.querySelector("")
+function renderHourly(hourlyData) {
+    const container = document.querySelector("#section-dia");
+    if (!container) return;
 
+    
+    const title = container.querySelector("h4");
+    container.innerHTML = "";
+    if (title) container.appendChild(title);
+
+    hourlyData.forEach(item => {
+        const row = document.createElement("div");
+        
+        row.innerHTML = `
+            <span style="font-size: 1.1rem">☁️</span>
+            <p>${item.time}</p>
+            <p>${item.temp}°</p>
+        `;
+        container.appendChild(row);
+    });
 }
-
 
 function orchestrerFunction(data) {
     renderBannerInfo(data);
