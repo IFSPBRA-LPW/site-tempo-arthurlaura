@@ -268,7 +268,7 @@ body {
 
 /* ícone clima cada dia */
 #section-semanal div::before {
-    /*content: "🌤️";*/
+    
     font-size: 1.4rem;
 }
 
@@ -301,7 +301,7 @@ body {
 }
 
 #section-dia > div::before {
-    /*content: "☁️";*/
+    
     font-size: 1.1rem;
     flex-shrink: 0;
 }
