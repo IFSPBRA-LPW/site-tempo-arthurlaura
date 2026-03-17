@@ -12,7 +12,7 @@ function renderBannerInfo(data) {
 function renderDayInfo(data) {    
     const container = document.querySelector("#section-dados");
     
-    // Concatenação direta para os cards de detalhes
+    
     container.innerHTML = `
         <div><h5>Feels Like</h5><h3>${data.feelsLike}°</h3></div>
         <div><h5>Humidity</h5><h3>${data.humidity}%</h3></div>
@@ -23,10 +23,10 @@ function renderDayInfo(data) {
 
 function renderDaily(dailyData) {
     const container = document.querySelector("#section-semanal");
-    let dailyCards = ""; // Variável para concatenar os cards
+    let dailyCards = ""; 
 
     dailyData.forEach(item => {
-        // Criando a estrutura idêntica ao HTML original, incluindo o ícone do data.js
+        
         dailyCards += `
             <div>
                 <span style="font-size: 1.4rem">${item.icon}</span>

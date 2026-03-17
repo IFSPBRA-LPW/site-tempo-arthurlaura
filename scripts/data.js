@@ -34,3 +34,46 @@ export const cityWeather = {
         { icon: "🌧", time: "3 PM", temp: 20 },
         ],
 };
+
+
+import { b435022dbef74b6eb0d181342261703 } from "./config.js";
+
+
+
+
+
+
+
+
+async function fetchWeather(city) {
+    const response = await fetch(
+        `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=7&lang=pt`,
+    );
+
+    if (!response.ok) {
+        throw new Error("Erro ao buscar dados da API");
+    }
+    
+    return response.json();
+}
+
+return{
+    city: apiData.location.name,
+    country: apiData.location.country,
+    date: apiData.location.localtime,
+    icon: apiData.current.condition.icon,
+    temperature: Math.round(apiData.current.temp),
+    feelsLike: Math.round(apiData.current.feelslike_c),
+    humidity: apiData.current.humidity,
+    wind: apiData.current.wind_kph,
+    precipitation: apiData.current.precip_mm
+
+
+
+
+
+
+
+
+
+}
