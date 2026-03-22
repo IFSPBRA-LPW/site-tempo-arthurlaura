@@ -1,5 +1,34 @@
 import { cityWeather } from "./data.js";
 
+
+
+import { getWeatherData } from "./data.js";
+
+
+
+async function handleSearch() {
+    const input = document.querySelector("#city-input"); 
+    const cityName = input.value || "Berlim";
+    
+    const data = await getWeatherData(cityName); 
+    
+    if (data) {
+        orchestrerFunction(data);
+        localStorage.setItem("lastCity", cityName); 
+    } else {
+        alert("Cidade não encontrada!");
+    }
+}
+
+
+const lastCity = localStorage.getItem("lastCity") || "Berlim"; 
+getWeatherData(lastCity).then(data => {
+    if (data) orchestrerFunction(data);
+});
+
+
+document.querySelector("#search-button").addEventListener("click", handleSearch);
+
 function renderBannerInfo(data) {
     const section = document.querySelector("#section-imagem");
     
