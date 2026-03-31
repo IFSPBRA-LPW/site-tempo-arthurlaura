@@ -18,6 +18,16 @@
     --font: 'Arial';
 }
 
+/* ===== MODO CLARO ===== */
+body.light-mode {
+    --bg: #f4f6f9;
+    --bg-card: #ffffff;
+    --bg-card-alt: #eef2f6;
+    --text-primary: #151a3a;
+    --text-secondary: #6b7280;
+    --border: rgba(0, 0, 0, 0.08);
+}
+
 body {
     background-color: var(--bg);
     color: var(--text-primary);

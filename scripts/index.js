@@ -80,3 +80,24 @@ function orchestrerFunction(data) {
     renderDaily(data.daily);
     renderHourly(data.hourly);
 }
+
+
+const themeToggleBtn = document.querySelector("#theme-toggle");
+const body = document.body;
+
+
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") {
+    body.classList.add("light-mode");
+    themeToggleBtn.innerText = "🌙";
+}
+
+
+themeToggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+    const isLightMode = body.classList.contains("light-mode");
+    
+   
+    themeToggleBtn.innerText = isLightMode ? "🌙" : "☀️";
+    localStorage.setItem("theme", isLightMode ? "light" : "dark");
+});
